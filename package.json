@@ -4,13 +4,19 @@
   "description": "A TypeScript library for math functions commonly needed in engineering projects",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "build": "tsc"
   },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/atlas484/eng-math.git"
   },
-  "keywords": [],
+  "keywords": [
+    "TypeScript",
+    "engineering",
+    "math",
+    "vector"
+  ],
   "author": "Atlas484",
   "license": "MIT",
   "bugs": {
@@ -19,5 +25,8 @@
   "homepage": "https://github.com/atlas484/eng-math#readme",
   "devDependencies": {
     "typescript": "^4.0.2"
-  }
+  },
+  "files": [
+    "lib/**/*"
+  ]
 }
