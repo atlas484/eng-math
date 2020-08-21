@@ -3,8 +3,7 @@
     "target": "ES5",
     //"watch": true,
     "declaration": true,
-    "outDir": "./lib",
-    "strict": true
+    "outDir": "./lib"
   },
   "include": [
     "src/**/*"
