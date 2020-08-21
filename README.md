@@ -1,1 +1,1 @@
-Fill this in later
+A TypeScript library for math functions commonly needed in engineering projects
