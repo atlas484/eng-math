@@ -16,5 +16,8 @@
   "bugs": {
     "url": "https://github.com/atlas484/eng-math/issues"
   },
-  "homepage": "https://github.com/atlas484/eng-math#readme"
+  "homepage": "https://github.com/atlas484/eng-math#readme",
+  "devDependencies": {
+    "typescript": "^4.0.2"
+  }
 }
