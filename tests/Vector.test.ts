@@ -24,7 +24,7 @@ describe('Vector3D', function () {
     describe('mag', function () {
         it('should return the magnitude vector', function () {
             const testVector = new Vector3D(3, 4, 12);
-            expect(testVector.magSq()).equal(13);
+            expect(testVector.mag()).equal(13);
         });
     });
     describe('set', function () {
@@ -210,7 +210,7 @@ describe('Vector3D', function () {
     describe('toString', function () {
         it('should return vector components as a string', function () {
             const testVector = new Vector3D(3, 4, 12);
-            expect(testVector.toString).equal("3,4,12");
+            expect(testVector.toString()).equal("3,4,12");
         });
     });
     describe('copy', function () {
@@ -305,7 +305,7 @@ describe('Vector3D', function () {
         it('should return a random vector with the given magnitude', function () {
             const testVector = Vector3D.randomVector(12);
             expect(testVector instanceof Vector3D).equal(true);
-            expect(testVector.mag()).equal(12);
+            expect(Math.round(testVector.mag())).equal(12);
         });
     });
     describe('static fromArray', function () {
