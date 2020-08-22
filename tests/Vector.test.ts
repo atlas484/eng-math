@@ -171,6 +171,59 @@ describe('Vector3D', function () {
             expect(expectedResult.z).equal(result.z);
         });
     });
+    describe('setMagnitude', function () {
+        it('should set the magnitude of the vector to the given number', function () {
+            const testVector = new Vector3D(3, 4, 12);
+            const result = new Vector3D(6, 8, 24);
+
+            testVector.setMagnitude(26);
+
+            expect(testVector.x).equal(result.x);
+            expect(testVector.y).equal(result.y);
+            expect(testVector.z).equal(result.z);
+        });
+    });
+    describe('normalize', function () {
+        it('should set the magnitude of the vector to 1', function () {
+            const testVector = new Vector3D(3, 4, 12);
+            const result = new Vector3D(3/13, 4/13, 12/13);
+
+            testVector.normalize();
+
+            expect(testVector.x).equal(result.x);
+            expect(testVector.y).equal(result.y);
+            expect(testVector.z).equal(result.z);
+        });
+    });
+    describe('toArray', function () {
+        it('should return vector components as an array of 3 numbers', function () {
+            const testVector = new Vector3D(3, 4, 12);
+            const result = [3, 4, 12];
+
+            const arr = testVector.toArray();
+
+            expect(arr[0]).equal(result[0]);
+            expect(arr[1]).equal(result[1]);
+            expect(arr[2]).equal(result[2]);
+        });
+    });
+    describe('toString', function () {
+        it('should return vector components as a string', function () {
+            const testVector = new Vector3D(3, 4, 12);
+            expect(testVector.toString).equal("3,4,12");
+        });
+    });
+    describe('copy', function () {
+        it('should return a new Vector3D with the same components', function () {
+            const testVector = new Vector3D(2, 3, 4);
+            const expectedResult = new Vector3D(2, 3, 4);
+            const result = testVector.copy();
+
+            expect(expectedResult.x).equal(result.x);
+            expect(expectedResult.y).equal(result.y);
+            expect(expectedResult.z).equal(result.z);
+        });
+    });
 });
 
 // describe('Vector2D', function () {
