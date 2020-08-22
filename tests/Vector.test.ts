@@ -63,7 +63,7 @@ describe('Vector3D', function () {
 
             expect(testVector.x).equal(result.x);
             expect(testVector.y).equal(result.y);
-            expect(testVector.z).equal(result.z);;
+            expect(testVector.z).equal(result.z);
         });
         it('should add the given Vector2D object to the vector', function () {
             const testVector = new Vector3D(2, 3, 4);
@@ -98,7 +98,7 @@ describe('Vector3D', function () {
 
             expect(testVector.x).equal(result.x);
             expect(testVector.y).equal(result.y);
-            expect(testVector.z).equal(result.z);;
+            expect(testVector.z).equal(result.z);
         });
         it('should subtract the given Vector2D object to the vector', function () {
             const testVector = new Vector3D(2, 3, 4);
@@ -222,6 +222,110 @@ describe('Vector3D', function () {
             expect(expectedResult.x).equal(result.x);
             expect(expectedResult.y).equal(result.y);
             expect(expectedResult.z).equal(result.z);
+        });
+    });
+
+    // testing static functions
+    describe('static add', function () {
+        it('should add the given Vector3D objects together', function () {
+            const testVector = new Vector3D(2, 3, 4);
+            const addVector = new Vector3D(3, 4, 5);
+            const expectedResult = new Vector3D(5, 7, 9);
+
+            const result = Vector3D.add(testVector, addVector);
+
+            expect(expectedResult.x).equal(result.x);
+            expect(expectedResult.y).equal(result.y);
+            expect(expectedResult.z).equal(result.z);
+        });
+        it('should add the given Vector2D and 3D objects together', function () {
+            const testVector = new Vector3D(2, 3, 4);
+            const addVector = new Vector2D(3, 4);
+            const expectedResult = new Vector3D(5, 7, 4);
+
+            const result = Vector3D.add(testVector, addVector);
+
+            expect(expectedResult.x).equal(result.x);
+            expect(expectedResult.y).equal(result.y);
+            expect(expectedResult.z).equal(result.z);
+        });
+    });
+    describe('static subtract', function () {
+        it('should subtract the given Vector3D objects', function () {
+            const testVector = new Vector3D(2, 3, 4);
+            const subVector = new Vector3D(3, 4, 5);
+            const expectedResult = new Vector3D(-1, -1, -1);
+
+            const result = Vector3D.subtract(testVector, subVector);
+
+            expect(expectedResult.x).equal(result.x);
+            expect(expectedResult.y).equal(result.y);
+            expect(expectedResult.z).equal(result.z);
+        });
+        it('should add the given Vector2D and 3D objects', function () {
+            const testVector = new Vector2D(2, 3);
+            const subVector = new Vector3D(3, 4, -18);
+            const expectedResult = new Vector3D(-1, -1, 18);
+
+            const result = Vector3D.subtract(testVector, subVector);
+
+            expect(expectedResult.x).equal(result.x);
+            expect(expectedResult.y).equal(result.y);
+            expect(expectedResult.z).equal(result.z);
+        });
+    });
+    describe('static zeroVector', function () {
+        it('should return a Vector3D with all zero components', function () {
+            const testVector = Vector3D.zeroVector();
+
+            expect(testVector.x).equal(0);
+            expect(testVector.y).equal(0);
+            expect(testVector.z).equal(0);
+        });
+    });
+    describe('static unit', function () {
+        it('should return a normalized version of the given vector', function () {
+            const testVector = new Vector3D(3, 4, 12);
+            const expectedResult = new Vector3D(3/13, 4/13, 12/13);
+            const result = Vector3D.unit(testVector);
+
+            expect(expectedResult.x).equal(result.x);
+            expect(expectedResult.y).equal(result.y);
+            expect(expectedResult.z).equal(result.z);
+        });
+    });
+    describe('static randUnitVector', function () {
+        it('should return a random unit vector', function () {
+            const testVector = Vector3D.randUnitVector();
+            expect(testVector instanceof Vector3D).equal(true);
+            expect(testVector.mag()).equal(1);
+        });
+    });
+    describe('static randomVector', function () {
+        it('should return a random vector with the given magnitude', function () {
+            const testVector = Vector3D.randomVector(12);
+            expect(testVector instanceof Vector3D).equal(true);
+            expect(testVector.mag()).equal(12);
+        });
+    });
+    describe('static fromArray', function () {
+        it('should return a Vector3D with the components from the given array', function () {
+            const arr = [1, 2, 3];
+            const testVector = Vector3D.fromArray(arr);
+            
+            expect(testVector.x).equal(arr[0]);
+            expect(testVector.y).equal(arr[1]);
+            expect(testVector.z).equal(arr[2]);
+        });
+    });
+    describe('static from2Dto3D', function () {
+        it('should return a Vector3D with the components from the given Vector2D', function () {
+            const testVector = new Vector2D(2, 5);
+            const result = Vector3D.from2Dto3D(testVector)
+            
+            expect(testVector.x).equal(result.x);
+            expect(testVector.y).equal(result.y);
+            expect(testVector.z).equal(result.z);
         });
     });
 });
