@@ -199,7 +199,6 @@ describe('Vector3D', function () {
         it('should return vector components as an array of 3 numbers', function () {
             const testVector = new Vector3D(3, 4, 12);
             const result = [3, 4, 12];
-
             const arr = testVector.toArray();
 
             expect(arr[0]).equal(result[0]);
@@ -527,7 +526,6 @@ describe('Vector2D', function () {
     describe('static zeroVector', function () {
         it('should return a Vector2D with all zero components', function () {
             const testVector = Vector2D.zeroVector();
-
             expect(testVector.x).equal(0);
             expect(testVector.y).equal(0);
             expect(testVector.z).equal(0);
@@ -562,7 +560,6 @@ describe('Vector2D', function () {
     describe('static fromRTheta', function () {
         it('should return a Vector2D with the given magnitude and angle', function () {
             const testVector = Vector2D.fromRTheta(10, Math.PI / 4);
-
             expect(testVector.mag()).equal(10);
             expect(testVector.angle()).equal(Math.PI / 4);
         });
@@ -570,7 +567,6 @@ describe('Vector2D', function () {
     describe('static fromangle', function () {
         it('should return a unit Vector2D with the given angle', function () {
             const testVector = Vector2D.fromAngle(Math.PI / 2);
-
             expect(testVector.mag()).equal(1);
             expect(testVector.angle()).equal(Math.PI / 2);
         });
