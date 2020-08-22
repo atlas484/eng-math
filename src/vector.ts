@@ -163,7 +163,7 @@ export class Vector2D extends Vector3D {
             this.x = x.x;
             this.y = x.y;
         } else if (x instanceof Vector3D) {
-            throw ("Cannot only set an instance of Vector3D to a Vector2D");
+            throw ("Cannot set an instance of Vector3D to a Vector2D");
         } else if (typeof (x) == "number") {
             this.x = x;
             this.y = y;
@@ -178,7 +178,7 @@ export class Vector2D extends Vector3D {
             this.x += x.x;
             this.y += x.y;
         } else if (x instanceof Vector3D) {
-            throw ("Cannot only add an instance of Vector3D to a Vector2D");
+            throw ("Cannot add an instance of Vector3D to a Vector2D");
         } else if (typeof (x) == "number") {
             this.x += x;
             this.y += y;
@@ -193,7 +193,7 @@ export class Vector2D extends Vector3D {
             this.x -= x.x;
             this.y -= x.y;
         } else if (x instanceof Vector3D) {
-            throw ("Cannot only add an instance of Vector3D to a Vector2D");
+            throw ("Cannot add an instance of Vector3D to a Vector2D");
         } else if (typeof (x) == "number") {
             this.x -= x;
             this.y -= y;
@@ -250,7 +250,7 @@ export class Vector2D extends Vector3D {
         return new Vector2D(magnitude * Math.cos(angle), magnitude * Math.sin(angle))
     }
     static fromAngle(angle: number): Vector2D {
-        // returns a unt vector at the given angle
+        // returns a unit vector at the given angle
         return Vector2D.fromRTheta(1, angle);
     }
 }
